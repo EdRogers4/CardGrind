@@ -1634,6 +1634,16 @@ MonoBehaviour:
   - {fileID: 398064615}
   - {fileID: 2040984308}
   - {fileID: 2059490600}
+  _textDamagePlayer:
+  - {fileID: 401798347}
+  - {fileID: 1738664532}
+  - {fileID: 1811137903}
+  - {fileID: 1953320588}
+  _textDamageEnemy:
+  - {fileID: 1848658829}
+  - {fileID: 1517952860}
+  - {fileID: 1156603831}
+  - {fileID: 1645518036}
   _highlightedBorder: {fileID: 1847923020}
 --- !u!1 &1156603829
 GameObject:
