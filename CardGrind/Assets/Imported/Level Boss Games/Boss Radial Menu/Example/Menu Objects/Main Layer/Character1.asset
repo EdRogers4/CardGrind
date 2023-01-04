@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Character1
   m_EditorClassIdentifier: 
   m_ElementSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_SpriteColour: {r: 1, g: 0.34442538, b: 0.34442538, a: 1}
+  m_SpriteColour: {r: 0.854902, g: 0.38431376, b: 0.28627452, a: 1}
   m_ElementName: Character1
   m_ElementEvent: 

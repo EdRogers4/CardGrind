@@ -24,9 +24,4 @@ public class CardManager : MonoBehaviour
     {
         
     }
-
-    public void SelectCard(int index)
-    {
-        _highlightedBorder.transform.position = _playerCardButton[index].transform.position;
-    }
 }
