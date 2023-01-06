@@ -13,10 +13,14 @@ public class Player : MonoBehaviour
     [Header("Scripts")] 
     [SerializeField] private Enemies _scriptEnemies;
     [SerializeField] private CardManager _scriptCardManager;
+    [SerializeField] private WeaponManager _scriptWeaponManager;
     
     [Header("UI")] 
     [SerializeField] private GameObject _buttonFight;
     [SerializeField] private GameObject _buttonReload;
+
+    [Header("Audio")] 
+    private AudioSource _audioSource;
 
     [Header("Weapons")] 
     [SerializeField] private int[] _currentWeapon;
@@ -30,6 +34,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        _audioSource = gameObject.GetComponent<AudioSource>();
         _animatorStoryPanel.SetBool("isOn", true);
         StartCoroutine(AnimateStoryText());
     }
@@ -41,18 +46,26 @@ public class Player : MonoBehaviour
         _scriptCardManager.GenerateEnemyDamage();
         _scriptCardManager.GeneratePlayerDamage();
         _buttonFight.GetComponent<Button>().interactable = false;
+        _audioSource.PlayOneShot(_scriptWeaponManager.SoundReload[0], 1);
+        _audioSource.PlayOneShot(_scriptWeaponManager.SoundReload[1], 1);
+        _audioSource.PlayOneShot(_scriptWeaponManager.SoundReload[2], 1);
     }
 
-    public void Reload()
+    public void Aim()
     {
         _scriptCardManager.GeneratePlayerDamage();
         _buttonReload.GetComponent<Button>().interactable = false;
+        _audioSource.PlayOneShot(_scriptWeaponManager.SoundDraw[0], 1);
+        _audioSource.PlayOneShot(_scriptWeaponManager.SoundDraw[1], 1);
+        _audioSource.PlayOneShot(_scriptWeaponManager.SoundDraw[2], 1);
     }
 
     public void ToggleReloadButtonOn()
     {
         _buttonFight.SetActive(false);
         _buttonReload.SetActive(true);
+        _buttonReload.GetComponent<Button>().interactable = true;
+        
     }
 
     private IEnumerator AnimateStoryText()

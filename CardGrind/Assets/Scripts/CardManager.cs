@@ -11,6 +11,9 @@ public class CardManager : MonoBehaviour
     [SerializeField] private Enemies _scriptEnemies;
     [SerializeField] private WeaponManager _scriptWeaponManager;
 
+    [Header("Audio")] 
+    private AudioSource _audioSource;
+
     [Header("Data")] 
     public int CurrentCharacter;
     
@@ -22,6 +25,11 @@ public class CardManager : MonoBehaviour
     [SerializeField] private int[] _damageEnemy;
     [SerializeField] private Image _highlightedBorder;
     private Color[] _highlightedColor = {new Color(0.99f, 0.48f, 0.54f), new Color(0.76f, 0.52f, 0.85f), new Color(0.41f, 0.88f, 0.50f)};
+
+    private void Start()
+    {
+        _audioSource = _scriptPlayer.gameObject.GetComponent<AudioSource>();
+    }
 
     public void GeneratePlayerDamage()
     {
@@ -60,6 +68,7 @@ public class CardManager : MonoBehaviour
         CurrentCharacter = index;
         _highlightedBorder.transform.position = _playerCardButton[index].transform.position;
         _highlightedBorder.color = _highlightedColor[index];
+        _audioSource.PlayOneShot(_scriptWeaponManager.SoundDraw[_scriptWeaponManager.CurrentWeapon[index]]);
     }
 
     public void SelectEnemyCard(int index)
@@ -79,6 +88,21 @@ public class CardManager : MonoBehaviour
                 _damageEnemy[index] -= 1;
                 _textDamagePlayer[CurrentCharacter].text = "" + _damagePlayer[CurrentCharacter];
                 _textDamageEnemy[index].text = "" + _damageEnemy[index];
+                _audioSource.PlayOneShot(_scriptWeaponManager.SoundGunshot[_scriptWeaponManager.CurrentWeapon[CurrentCharacter]], 0.7F);
+
+                switch (index)
+                {
+                    case 0:
+                        _scriptWeaponManager.BulletHoleFadeIn(index, _scriptWeaponManager.BulletHoles1[Random.Range(0, _scriptWeaponManager.BulletHoles1.Count)]);
+                        break;
+                    case 1:
+                        _scriptWeaponManager.BulletHoleFadeIn(index, _scriptWeaponManager.BulletHoles2[Random.Range(0, _scriptWeaponManager.BulletHoles2.Count)]);
+                        break;
+                    case 2:
+                        _scriptWeaponManager.BulletHoleFadeIn(index, _scriptWeaponManager.BulletHoles3[Random.Range(0, _scriptWeaponManager.BulletHoles3.Count)]);
+                        break;
+                }
+
                 yield return new WaitForSeconds(0.2f);
             }
 
