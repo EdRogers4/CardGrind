@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+	public int CurrentWeapon;
 
+	public void GenerateDamage()
+	{
+		
+	}
 }
