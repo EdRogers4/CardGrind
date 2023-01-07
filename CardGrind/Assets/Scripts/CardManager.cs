@@ -27,6 +27,7 @@ public class CardManager : MonoBehaviour
     [SerializeField] private int[] _damageEnemy;
     [SerializeField] private Image _highlightedBorder;
     private Color[] _highlightedColor = {new Color(0.99f, 0.48f, 0.54f), new Color(0.76f, 0.52f, 0.85f), new Color(0.41f, 0.88f, 0.50f)};
+    private Color _maroon = new Color(0.51f, 0.37f, 0.41f);
 
     private void Start()
     {
@@ -89,17 +90,8 @@ public class CardManager : MonoBehaviour
         {
             for (int i = 0; i < damage; i++)
             {
-
-                if (_damageEnemy[index] <= 0)
-                {
-                    break;
-                }
-                
                 _damagePlayer[CurrentCharacter] -= 1;
-                _damageEnemy[index] -= 1;
-                _scriptEnemies.CurrentEnemyCards[index] -= 1;
                 _textDamagePlayer[CurrentCharacter].text = "" + _damagePlayer[CurrentCharacter];
-                _textDamageEnemy[index].text = "" + _damageEnemy[index];
                 _audioSource.PlayOneShot(_scriptWeaponManager.SoundGunshot[_scriptWeaponManager.CurrentWeapon[CurrentCharacter]], 0.7F);
                 _audioSource.PlayOneShot(_scriptEnemies.SoundHit[Random.Range(0, _scriptEnemies.SoundHit.Length)]);
 
@@ -115,20 +107,31 @@ public class CardManager : MonoBehaviour
                         _scriptWeaponManager.BulletHoleFadeIn(index, _scriptWeaponManager.BulletHoles3[Random.Range(0, _scriptWeaponManager.BulletHoles3.Count)]);
                         break;
                 }
-                
-                //Resolve card elimination
-                if (_scriptEnemies.CurrentEnemyCards[index] <= 0)
+
+                if (_damageEnemy[index] > 0)
                 {
-                    StartCoroutine(EliminateCard(index));
-                    _scriptEnemies.BloodFadeIn();
+                    _damageEnemy[index] -= 1;
+                    _scriptEnemies.CurrentEnemyCards[index] -= 1;
+                    _textDamageEnemy[index].text = "" + _damageEnemy[index];
+                
+                    if (_scriptEnemies.CurrentEnemyCards[index] <= 0)
+                    {
+                        _scriptEnemies.BloodFadeIn();
+                    }
                 }
 
                 yield return new WaitForSeconds(0.2f);
             }
+            
+            //Resolve card elimination
+            if (_scriptEnemies.CurrentEnemyCards[index] <= 0)
+            {
+                StartCoroutine(EliminateCard(index));
+            }
 
             if (_damagePlayer[0] == 0 && _damagePlayer[1] == 0 && _damagePlayer[2] == 0)
             {
-                _scriptPlayer.ToggleReloadButtonOn();
+                StartCoroutine(TogglePlayerAim());
 
                 if (_damageEnemy[0] > 0)
                 {
@@ -149,8 +152,16 @@ public class CardManager : MonoBehaviour
             if (_damageEnemy[0] == 0 && _damageEnemy[1] == 0 && _damageEnemy[2] == 0)
             {
                 StartCoroutine(_scriptEnemies.EnemyFadeOut());
+                StartCoroutine(_scriptPlayer.StoryBlip());
+                StartCoroutine(ResetEnemyCards());
             }
         }
+    }
+
+    private IEnumerator TogglePlayerAim()
+    {
+        yield return new WaitForSeconds(2.0f);
+        _scriptPlayer.Aim();
     }
 
     private IEnumerator EnemyAttack(int index)
@@ -167,5 +178,16 @@ public class CardManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _enemyCardButton[index].GetComponent<Image>().DOColor(Color.clear, 2);
         _textDamageEnemy[index].DOFade(0, 2);
+    }
+
+    private IEnumerator ResetEnemyCards()
+    {
+        yield return new WaitForSeconds(5.0f);
+
+        for (int i = 0; i < _enemyCardButton.Length; i++)
+        {
+            _enemyCardButton[i].GetComponent<Image>().DOColor(_maroon, 0);
+            _textDamageEnemy[i].DOFade(1, 0);
+        }
     }
 }

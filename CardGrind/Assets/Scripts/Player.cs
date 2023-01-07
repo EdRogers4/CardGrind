@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     
     [Header("UI")] 
     [SerializeField] private GameObject _buttonFight;
-    [SerializeField] private GameObject _buttonReload;
     [SerializeField] private Image[] _blood1;
     [SerializeField] private Image[] _blood2;
     [SerializeField] private Image[] _blood3;
@@ -31,6 +30,11 @@ public class Player : MonoBehaviour
     [SerializeField] private RectTransform[] _healthBar;
     [SerializeField] private TextMeshProUGUI[] _textHealth;
     private int _widthHealthBar = 110;
+
+    [Header("Experience")] 
+    public int[] PlayerExperience;
+    [SerializeField] private int[] _toNextLevel;
+    [SerializeField] private RectTransform[] _experienceBar;
 
     [Header("Story")] 
     [SerializeField] private Animator _animatorStoryPanel;
@@ -66,18 +70,9 @@ public class Player : MonoBehaviour
     public void Aim()
     {
         _scriptCardManager.GeneratePlayerDamage();
-        _buttonReload.GetComponent<Button>().interactable = false;
         _audioSource.PlayOneShot(_scriptWeaponManager.SoundDraw[0], 1);
         _audioSource.PlayOneShot(_scriptWeaponManager.SoundDraw[1], 1);
         _audioSource.PlayOneShot(_scriptWeaponManager.SoundDraw[2], 1);
-    }
-
-    public void ToggleReloadButtonOn()
-    {
-        _buttonFight.SetActive(false);
-        _buttonReload.SetActive(true);
-        _buttonReload.GetComponent<Button>().interactable = true;
-        
     }
 
     private IEnumerator AnimateStoryText()
@@ -125,5 +120,14 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         blood.DOColor(Color.clear, 0.5f);
+    }
+
+    public IEnumerator StoryBlip()
+    {
+        _currentStoryBlip += 1;
+        _textStory.text = "";
+        yield return new WaitForSeconds(3.0f);
+        _animatorStoryPanel.SetBool("isOn", true);
+        _buttonFight.GetComponent<Button>().interactable = true;
     }
 }

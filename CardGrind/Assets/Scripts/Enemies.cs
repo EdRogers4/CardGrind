@@ -17,6 +17,10 @@ public class Enemies : MonoBehaviour
 	public int[] EnemyCard2;
 	public int[] EnemyCard3;
 	[SerializeField] private Animator _animatorEnemyCards;
+	[SerializeField] private Sprite[] _enemyPortrait;
+	[SerializeField] private Image _imagePortrait;
+	public int[] EnemyKillExperience;
+	public int[] EnemyCardExperience;
 
 	[Header("Effects")]
 	[SerializeField] private Image[] _blood;
@@ -44,6 +48,8 @@ public class Enemies : MonoBehaviour
 	public void EnemyFadeIn()
 	{
 		_textEnemyName.DOColor(Color.white, _timeFadeInEnemy);
+		_imagePortrait.sprite = _enemyPortrait[CurrentEnemy];
+		StartCoroutine(ShowEnemyCards());
         
 		for (int i = 0; i < _imagesEnemyPanel.Length; i++)
 		{
@@ -60,8 +66,6 @@ public class Enemies : MonoBehaviour
 				_imagesEnemyPanel[i].DOColor(Color.white, _timeFadeInEnemy);
 			}
 		}
-
-		StartCoroutine(ShowEnemyCards());
 	}
 
 	public IEnumerator EnemyFadeOut()
@@ -69,6 +73,7 @@ public class Enemies : MonoBehaviour
 		_audioSource.PlayOneShot(SoundDeath[Random.Range(0, SoundDeath.Length)], 1.5f);
 		yield return new WaitForSeconds(2.0f);
 		_textEnemyName.DOColor(Color.clear, _timeFadeInEnemy);
+		_animatorEnemyCards.SetBool("isShow", false);
 		
 		for (int i = 0; i < _imagesEnemyPanel.Length; i++)
 		{
@@ -78,7 +83,7 @@ public class Enemies : MonoBehaviour
 
 	private IEnumerator ShowEnemyCards()
 	{
-		yield return new WaitForSeconds(2.0f);
+		yield return new WaitForSeconds(0.5f);
 		_imagesEnemyPanel[1].gameObject.GetComponent<RectTransform>().DOSizeDelta(_cardConnectorLength, 2);
 		_animatorEnemyCards.SetBool("isShow", true);
 	}
