@@ -18,13 +18,20 @@ public class Player : MonoBehaviour
     [Header("UI")] 
     [SerializeField] private GameObject _buttonFight;
     [SerializeField] private GameObject _buttonReload;
+    [SerializeField] private Image[] _blood1;
+    [SerializeField] private Image[] _blood2;
+    [SerializeField] private Image[] _blood3;
 
     [Header("Audio")] 
     private AudioSource _audioSource;
 
-    [Header("Weapons")] 
-    [SerializeField] private int[] _currentWeapon;
-    
+    [Header("Health")] 
+    public int[] PlayerHealth;
+    [SerializeField] private int[] _playerHealthMax;
+    [SerializeField] private RectTransform[] _healthBar;
+    [SerializeField] private TextMeshProUGUI[] _textHealth;
+    private int _widthHealthBar = 110;
+
     [Header("Story")] 
     [SerializeField] private Animator _animatorStoryPanel;
     [SerializeField] private TextMeshProUGUI _textStory;
@@ -37,6 +44,11 @@ public class Player : MonoBehaviour
         _audioSource = gameObject.GetComponent<AudioSource>();
         _animatorStoryPanel.SetBool("isOn", true);
         StartCoroutine(AnimateStoryText());
+
+        for (int i = 0; i < PlayerHealth.Length; i++)
+        {
+            PlayerHealth[i] = _playerHealthMax[i];
+        }
     }
 
     public void Fight()
@@ -77,5 +89,41 @@ public class Player : MonoBehaviour
             _textStory.text += _storyBlipsForest[_currentStoryBlip][i];
             yield return new WaitForSeconds(_speedAnimateText);
         }
+    }
+
+    public void ReduceHealthBar(int index)
+    {
+        _textHealth[index].text = "" + PlayerHealth[index];
+        var barWidth = _widthHealthBar / _playerHealthMax[index];
+        barWidth = barWidth * PlayerHealth[index];
+        _healthBar[index].DOSizeDelta(new Vector2(barWidth, _healthBar[index].sizeDelta.y), 0.2f);
+    }
+    
+    public void BloodFadeIn(int character)
+    {
+        var bloodIndex = Random.Range(0, 3);
+        _audioSource.PlayOneShot(_scriptEnemies.SoundAttack[Random.Range(0, _scriptEnemies.SoundAttack.Length)]);
+
+        switch (character)
+        {
+            case 0:
+                _blood1[bloodIndex].DOColor(Color.white, 0.2f);
+                StartCoroutine(BloodFadeOut(_blood1[bloodIndex]));
+                break;
+            case 1:
+                _blood2[bloodIndex].DOColor(Color.white, 0.2f);
+                StartCoroutine(BloodFadeOut(_blood2[bloodIndex]));
+                break;
+            case 2:
+                _blood3[bloodIndex].DOColor(Color.white, 0.2f);
+                StartCoroutine(BloodFadeOut(_blood3[bloodIndex]));
+                break;
+        }
+    }
+
+    private IEnumerator BloodFadeOut(Image blood)
+    {
+        yield return new WaitForSeconds(1.5f);
+        blood.DOColor(Color.clear, 0.5f);
     }
 }

@@ -12,10 +12,16 @@ public class Enemies : MonoBehaviour
 
 	[Header("Enemy Cards")] 
 	public int CurrentEnemy;
+	public int[] CurrentEnemyCards;
 	public int[] EnemyCard1;
 	public int[] EnemyCard2;
 	public int[] EnemyCard3;
 	[SerializeField] private Animator _animatorEnemyCards;
+
+	[Header("Sounds")] 
+	public AudioClip[] SoundDeath;
+	public AudioClip[] SoundHit;
+	public AudioClip[] SoundAttack;
 
 	[Header("Enemy Panel")]
 	[SerializeField] private Image[] _imagesEnemyPanel;
@@ -24,7 +30,7 @@ public class Enemies : MonoBehaviour
 	private Color _maroon = new Color(0.51f, 0.37f, 0.41f);
 	private Color _white = new Color(1, 1, 1, 1);
 	private Color _blackFaded = new Color(0, 0, 0, 0.68f);
-	private Vector2 _cardConnectorLength = new Vector2(355, 10);
+	private Vector2 _cardConnectorLength = new Vector2(415, 10);
 
 	public void EnemyFadeIn()
 	{
@@ -34,7 +40,7 @@ public class Enemies : MonoBehaviour
 		{
 			if (i == 1)
 			{
-				_imagesEnemyPanel[i].DOColor(_maroon, _timeFadeInEnemy);
+				_imagesEnemyPanel[i].DOColor(_blackFaded, _timeFadeInEnemy);
 			}
 			else if (i == 3)
 			{

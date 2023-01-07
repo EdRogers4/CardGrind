@@ -36,7 +36,7 @@ public class WeaponManager : MonoBehaviour
 
 	private IEnumerator BulletHoleFadeOut(int index, Image bulletHole)
 	{
-		yield return new WaitForSeconds(3.0f);
+		yield return new WaitForSeconds(0.5f);
 		bulletHole.DOColor(Color.clear, 0.5f);
 
 		switch (index)
