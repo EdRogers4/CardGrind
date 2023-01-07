@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
@@ -30,11 +31,14 @@ public class Player : MonoBehaviour
     [SerializeField] private RectTransform[] _healthBar;
     [SerializeField] private TextMeshProUGUI[] _textHealth;
     private int _widthHealthBar = 110;
+    private float _fillAmount;
 
     [Header("Experience")] 
-    public int[] PlayerExperience;
+    public int[] PlayerLevel;
+    [SerializeField] private int[] _playerExperience;
     [SerializeField] private int[] _toNextLevel;
     [SerializeField] private RectTransform[] _experienceBar;
+    [SerializeField] private TextMeshProUGUI[] _textLevel;
 
     [Header("Story")] 
     [SerializeField] private Animator _animatorStoryPanel;
@@ -92,6 +96,26 @@ public class Player : MonoBehaviour
         var barWidth = _widthHealthBar / _playerHealthMax[index];
         barWidth = barWidth * PlayerHealth[index];
         _healthBar[index].DOSizeDelta(new Vector2(barWidth, _healthBar[index].sizeDelta.y), 0.2f);
+    }
+
+    public IEnumerator IncreaseExperience(int index, int amount)
+    {
+        _playerExperience[index] += amount;
+
+        if (_playerExperience[index] >= _toNextLevel[PlayerLevel[index]])
+        {
+            _playerExperience[index] = _playerExperience[index] - _toNextLevel[PlayerLevel[index]];
+            PlayerLevel[index] += 1;
+            _textLevel[index].text = "" + (PlayerLevel[index] + 1);
+            var maxWidth = new Vector2(110f, 10.0f);
+            _experienceBar[index].DOSizeDelta(maxWidth, 0.5f);
+            yield return new WaitForSeconds(0.5f);
+        }
+        
+        _fillAmount = (float)_playerExperience[index] / (float)_toNextLevel[PlayerLevel[index]];
+        var newX = 110f * _fillAmount;
+        var newWidth = new Vector2(newX, 10.0f);
+        _experienceBar[index].DOSizeDelta(newWidth, 1.0f);
     }
     
     public void BloodFadeIn(int character)

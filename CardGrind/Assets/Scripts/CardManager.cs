@@ -178,6 +178,7 @@ public class CardManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _enemyCardButton[index].GetComponent<Image>().DOColor(Color.clear, 2);
         _textDamageEnemy[index].DOFade(0, 2);
+        StartCoroutine(_scriptPlayer.IncreaseExperience(CurrentCharacter, _scriptEnemies.EnemyCardExperience[_scriptEnemies.CurrentEnemy]));
     }
 
     private IEnumerator ResetEnemyCards()
