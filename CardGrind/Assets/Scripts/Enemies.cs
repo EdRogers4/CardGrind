@@ -18,7 +18,11 @@ public class Enemies : MonoBehaviour
 	public int[] EnemyCard3;
 	[SerializeField] private Animator _animatorEnemyCards;
 
+	[Header("Effects")]
+	[SerializeField] private Image[] _blood;
+
 	[Header("Sounds")] 
+	private AudioSource _audioSource;
 	public AudioClip[] SoundDeath;
 	public AudioClip[] SoundHit;
 	public AudioClip[] SoundAttack;
@@ -27,14 +31,19 @@ public class Enemies : MonoBehaviour
 	[SerializeField] private Image[] _imagesEnemyPanel;
 	[SerializeField] private TextMeshProUGUI _textEnemyName;
 	[SerializeField] private float _timeFadeInEnemy;
+	[SerializeField] private float _timeFadeOutEnemy;
 	private Color _maroon = new Color(0.51f, 0.37f, 0.41f);
-	private Color _white = new Color(1, 1, 1, 1);
 	private Color _blackFaded = new Color(0, 0, 0, 0.68f);
 	private Vector2 _cardConnectorLength = new Vector2(415, 10);
 
+	private void Start()
+	{
+		_audioSource = gameObject.GetComponent<AudioSource>();
+	}
+
 	public void EnemyFadeIn()
 	{
-		_textEnemyName.DOColor(_white, _timeFadeInEnemy);
+		_textEnemyName.DOColor(Color.white, _timeFadeInEnemy);
         
 		for (int i = 0; i < _imagesEnemyPanel.Length; i++)
 		{
@@ -48,11 +57,23 @@ public class Enemies : MonoBehaviour
 			}
 			else
 			{
-				_imagesEnemyPanel[i].DOColor(_white, _timeFadeInEnemy);
+				_imagesEnemyPanel[i].DOColor(Color.white, _timeFadeInEnemy);
 			}
 		}
 
 		StartCoroutine(ShowEnemyCards());
+	}
+
+	public IEnumerator EnemyFadeOut()
+	{
+		_audioSource.PlayOneShot(SoundDeath[Random.Range(0, SoundDeath.Length)], 1.5f);
+		yield return new WaitForSeconds(2.0f);
+		_textEnemyName.DOColor(Color.clear, _timeFadeInEnemy);
+		
+		for (int i = 0; i < _imagesEnemyPanel.Length; i++)
+		{
+			_imagesEnemyPanel[i].DOColor(Color.clear, _timeFadeOutEnemy);
+		}
 	}
 
 	private IEnumerator ShowEnemyCards()
@@ -60,5 +81,18 @@ public class Enemies : MonoBehaviour
 		yield return new WaitForSeconds(2.0f);
 		_imagesEnemyPanel[1].gameObject.GetComponent<RectTransform>().DOSizeDelta(_cardConnectorLength, 2);
 		_animatorEnemyCards.SetBool("isShow", true);
+	}
+	
+	public void BloodFadeIn()
+	{
+		var bloodIndex = Random.Range(0, 3);
+		_blood[bloodIndex].DOColor(Color.white, 0);
+		StartCoroutine(BloodFadeOut(_blood[bloodIndex]));
+	}
+
+	private IEnumerator BloodFadeOut(Image blood)
+	{
+		yield return new WaitForSeconds(1.5f);
+		blood.DOColor(Color.clear, 0.5f);
 	}
 }

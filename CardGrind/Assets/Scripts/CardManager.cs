@@ -120,6 +120,7 @@ public class CardManager : MonoBehaviour
                 if (_scriptEnemies.CurrentEnemyCards[index] <= 0)
                 {
                     StartCoroutine(EliminateCard(index));
+                    _scriptEnemies.BloodFadeIn();
                 }
 
                 yield return new WaitForSeconds(0.2f);
@@ -143,6 +144,11 @@ public class CardManager : MonoBehaviour
                 {
                     StartCoroutine(EnemyAttack(2));
                 }
+            }
+
+            if (_damageEnemy[0] == 0 && _damageEnemy[1] == 0 && _damageEnemy[2] == 0)
+            {
+                StartCoroutine(_scriptEnemies.EnemyFadeOut());
             }
         }
     }
