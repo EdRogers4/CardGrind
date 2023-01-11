@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     
     [Header("UI")] 
     [SerializeField] private GameObject _buttonFight;
+    [SerializeField] private Button _buttonTravel;
     [SerializeField] private Image[] _blood1;
     [SerializeField] private Image[] _blood2;
     [SerializeField] private Image[] _blood3;
@@ -50,8 +51,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         _audioSource = gameObject.GetComponent<AudioSource>();
-        _animatorStoryPanel.SetBool("isOn", true);
-        StartCoroutine(AnimateStoryText());
 
         for (int i = 0; i < PlayerHealth.Length; i++)
         {
@@ -62,6 +61,7 @@ public class Player : MonoBehaviour
     public void Fight()
     {
         _animatorStoryPanel.SetBool("isOn", false);
+        _buttonTravel.interactable = false;
         _scriptEnemies.EnemyFadeIn();
         _scriptCardManager.GenerateEnemyDamage();
         _scriptCardManager.GeneratePlayerDamage();
@@ -79,6 +79,18 @@ public class Player : MonoBehaviour
         _audioSource.PlayOneShot(_scriptWeaponManager.SoundDraw[2], 1);
     }
 
+    public void PlayStory()
+    {
+        _animatorStoryPanel.SetBool("isOn", true);
+        StartCoroutine(AnimateStoryText());
+    }
+
+    public void ClearStory()
+    {
+        _textStory.text = "";
+        StopCoroutine(AnimateStoryText());
+    }
+
     private IEnumerator AnimateStoryText()
     {
         yield return new WaitForSeconds(1.0f);
@@ -86,7 +98,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < _storyBlipsForest[_currentStoryBlip].Length; i++)
         {
             _textStory.text += _storyBlipsForest[_currentStoryBlip][i];
-            yield return new WaitForSeconds(_speedAnimateText);
+            yield return new WaitForSeconds(0.00001f);
         }
     }
 
@@ -153,5 +165,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         _animatorStoryPanel.SetBool("isOn", true);
         _buttonFight.GetComponent<Button>().interactable = true;
+        _buttonTravel.interactable = true;
     }
 }
