@@ -8,9 +8,6 @@ using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
-    [Header("Stats")] 
-    public string CurrentArea;
-    
     [Header("Scripts")] 
     [SerializeField] private Enemies _scriptEnemies;
     [SerializeField] private CardManager _scriptCardManager;
