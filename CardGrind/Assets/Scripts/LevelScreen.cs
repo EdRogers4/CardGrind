@@ -24,7 +24,6 @@ public class LevelScreen : MonoBehaviour
     [SerializeField] private GameObject _levelScreenElements;
     [SerializeField] private float _speedTransitionScreen;
     private Color _colorNotSelected = new Color(1f, 1f, 1f, 0.44f);
-    private Color _colorBackground = new Color(0.14f, 0.14f, 0.14f, 1.0f);
 
     [Header("Level Frames")]
     [SerializeField] private Sprite[] _frameForest;
@@ -89,7 +88,7 @@ public class LevelScreen : MonoBehaviour
     {
         yield return new WaitForSeconds(_speedTransitionScreen);
         _levelScreenElements.SetActive(true);
-        _background.DOColor(_colorBackground, 0f);
+        _background.DOColor(Color.black, 0f);
         _fadeOutScreen.DOColor(Color.clear, _speedTransitionScreen);
         MusicFadeIn();
         _audioSource.clip = _areaTrack[0];

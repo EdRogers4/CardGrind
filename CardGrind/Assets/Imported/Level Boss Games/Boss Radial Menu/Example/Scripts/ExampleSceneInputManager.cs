@@ -27,7 +27,7 @@ namespace LBG.UI.Radial
                             break;
 
                         default:
-                            Debug.LogWarning("No button event handler for " + buttonEvent + " in layer " + layerEvent);
+                            //Debug.LogWarning("No button event handler for " + buttonEvent + " in layer " + layerEvent);
                             break;
                     }
                     break;

@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < PlayerHealth.Length; i++)
         {
             PlayerHealth[i] = _playerHealthMax[i];
+            _textHealth[i].text = "" + _playerHealthMax[i];
         }
     }
 
@@ -110,6 +111,7 @@ public class Player : MonoBehaviour
     public IEnumerator IncreaseExperience(int index, int amount)
     {
         _playerExperience[index] += amount;
+        var thisCharacter = index;
 
         if (_playerExperience[index] >= _toNextLevel[PlayerLevel[index]])
         {
@@ -118,13 +120,22 @@ public class Player : MonoBehaviour
             _textLevel[index].text = "" + (PlayerLevel[index] + 1);
             var maxWidth = new Vector2(110f, 10.0f);
             _experienceBar[index].DOSizeDelta(maxWidth, 0.5f);
+            NewLevel(index);
             yield return new WaitForSeconds(0.5f);
         }
         
-        _fillAmount = (float)_playerExperience[index] / (float)_toNextLevel[PlayerLevel[index]];
+        _fillAmount = (float)_playerExperience[thisCharacter] / (float)_toNextLevel[PlayerLevel[thisCharacter]];
         var newX = 110f * _fillAmount;
         var newWidth = new Vector2(newX, 10.0f);
         _experienceBar[index].DOSizeDelta(newWidth, 1.0f);
+    }
+
+    public void NewLevel(int index)
+    {
+        _playerHealthMax[index] += 1;
+        PlayerHealth[index] = _playerHealthMax[index];
+        _textHealth[index].text = "" + _playerHealthMax[index];
+        _healthBar[index].DOSizeDelta(new Vector2(110, _healthBar[index].sizeDelta.y), 0.2f);
     }
     
     public void BloodFadeIn(int character)

@@ -88,17 +88,19 @@ public class CardManager : MonoBehaviour
     private IEnumerator DamageEnemyCard(int index)
     {
         var damage = _damagePlayer[CurrentCharacter];
+        var thisEnemy = index;
+        var thisCharacter = CurrentCharacter;
         
         if (_damagePlayer[CurrentCharacter] > 0)
         {
             for (int i = 0; i < damage; i++)
             {
-                _damagePlayer[CurrentCharacter] -= 1;
-                _textDamagePlayer[CurrentCharacter].text = "" + _damagePlayer[CurrentCharacter];
-                _audioSource.PlayOneShot(_scriptWeaponManager.SoundGunshot[_scriptWeaponManager.CurrentWeapon[CurrentCharacter]], 0.7F);
+                _damagePlayer[thisCharacter] -= 1;
+                _textDamagePlayer[thisCharacter].text = "" + _damagePlayer[thisCharacter];
+                _audioSource.PlayOneShot(_scriptWeaponManager.SoundGunshot[_scriptWeaponManager.CurrentWeapon[thisCharacter]], 0.7F);
                 _audioSource.PlayOneShot(_scriptEnemies.SoundHit[Random.Range(0, _scriptEnemies.SoundHit.Length)]);
 
-                switch (index)
+                switch (thisEnemy)
                 {
                     case 0:
                         _scriptWeaponManager.BulletHoleFadeIn(index, _scriptWeaponManager.BulletHoles1[Random.Range(0, _scriptWeaponManager.BulletHoles1.Count)]);
@@ -111,13 +113,13 @@ public class CardManager : MonoBehaviour
                         break;
                 }
 
-                if (_damageEnemy[index] > 0)
+                if (_damageEnemy[thisEnemy] > 0)
                 {
-                    _damageEnemy[index] -= 1;
-                    _scriptEnemies.CurrentEnemyCards[index] -= 1;
-                    _textDamageEnemy[index].text = "" + _damageEnemy[index];
+                    _damageEnemy[thisEnemy] -= 1;
+                    _scriptEnemies.CurrentEnemyCards[thisEnemy] -= 1;
+                    _textDamageEnemy[thisEnemy].text = "" + _damageEnemy[thisEnemy];
                 
-                    if (_scriptEnemies.CurrentEnemyCards[index] <= 0)
+                    if (_scriptEnemies.CurrentEnemyCards[thisEnemy] <= 0)
                     {
                         _scriptEnemies.BloodFadeIn();
                     }
@@ -127,9 +129,9 @@ public class CardManager : MonoBehaviour
             }
             
             //Resolve card elimination
-            if (_scriptEnemies.CurrentEnemyCards[index] <= 0)
+            if (_scriptEnemies.CurrentEnemyCards[thisEnemy] <= 0)
             {
-                StartCoroutine(EliminateCard(index));
+                StartCoroutine(EliminateCard(thisEnemy, thisCharacter));
             }
 
             if (_damagePlayer[0] == 0 && _damagePlayer[1] == 0 && _damagePlayer[2] == 0)
@@ -176,12 +178,12 @@ public class CardManager : MonoBehaviour
         
     }
 
-    private IEnumerator EliminateCard(int index)
+    private IEnumerator EliminateCard(int thisEnemy, int thisCharacter)
     {
         yield return new WaitForSeconds(0.5f);
-        _enemyCardButton[index].GetComponent<Image>().DOColor(Color.clear, 2);
-        _textDamageEnemy[index].DOFade(0, 2);
-        StartCoroutine(_scriptPlayer.IncreaseExperience(CurrentCharacter, _scriptEnemies.EnemyCardExperience[_scriptEnemies.CurrentEnemy]));
+        _enemyCardButton[thisEnemy].GetComponent<Image>().DOColor(Color.clear, 2);
+        _textDamageEnemy[thisEnemy].DOFade(0, 2);
+        StartCoroutine(_scriptPlayer.IncreaseExperience(thisCharacter, _scriptEnemies.EnemyCardExperience[_scriptEnemies.CurrentEnemy]));
     }
 
     private IEnumerator ResetEnemyCards()
