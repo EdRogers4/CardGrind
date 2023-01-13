@@ -31,6 +31,9 @@ public class LevelScreen : MonoBehaviour
     [SerializeField] private Sprite[] _frameFactory;
     [SerializeField] private Sprite[] _frameLake;
 
+    [Header("Area Progress")]
+    public int CurrentProgress;
+
 
     private void Start()
     {

@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Image[] _blood1;
     [SerializeField] private Image[] _blood2;
     [SerializeField] private Image[] _blood3;
+    [SerializeField] private Image[] _imageBlot;
+    [SerializeField] private Image[] _imageX;
 
     [Header("Audio")] 
     private AudioSource _audioSource;
@@ -102,6 +104,13 @@ public class Player : MonoBehaviour
 
     public void ReduceHealthBar(int index)
     {
+        if (PlayerHealth[index] < 0)
+        {
+            PlayerHealth[index] = 0;
+            _imageBlot[index].DOColor(Color.black, 1.5f);
+            _imageX[index].DOColor(Color.white, 1.5f);
+        }
+
         _textHealth[index].text = "" + PlayerHealth[index];
         var barWidth = _widthHealthBar / _playerHealthMax[index];
         barWidth = barWidth * PlayerHealth[index];

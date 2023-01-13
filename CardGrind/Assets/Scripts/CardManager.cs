@@ -40,7 +40,7 @@ public class CardManager : MonoBehaviour
         
         for (int i = 0; i < _damagePlayer.Length; i++)
         {
-            if (_damagePlayer[i] <= 0)
+            if (_damagePlayer[i] <= 0 && _scriptPlayer.PlayerHealth[i] > 0)
             {
                 _damagePlayer[i] = Random.Range(1, 4);
                 _textDamagePlayer[i].text = "" + _damagePlayer[i];

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cbe9d360282a24ba75bbb7d92c4657, type: 3}
   m_Name: Character3
   m_EditorClassIdentifier: 
-  m_ElementSprite: {fileID: 21300000, guid: c8ed85cd8f31f864e8c2e4aab9572a75, type: 3}
+  m_ElementSprite: {fileID: 21300000, guid: 156292814d7c49b45bbcb438e54c7d13, type: 3}
   m_SpriteColour: {r: 1, g: 1, b: 1, a: 1}
   m_ElementName: Swap
   m_ElementEvent: 
