@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d34f3dfe0619ce41b320d67c7655205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InputManager: {fileID: 163954461}
+  m_InputManager: {fileID: 1972805912}
   m_InputHorizontal: Horizontal
   m_InputVertical: Vertical
   m_InputJoystickConfirm: Submit
@@ -1331,11 +1331,7 @@ MonoBehaviour:
   m_DefaultCleanUpTime: 1
   m_StartLayer: 0
   m_Layers:
-  - {fileID: 11400000, guid: 174eb7355cb9e054999a13ab5612ad2a, type: 2}
-  - {fileID: 11400000, guid: da3e91203b4230d4ea802c79ca09c4d6, type: 2}
-  - {fileID: 11400000, guid: 80044f8e237f50e47a9cf87d433fa575, type: 2}
-  - {fileID: 11400000, guid: e0b58993cf21fb349b3f6c2e129c7e17, type: 2}
-  - {fileID: 11400000, guid: bd8adb0b927a5ac4498d47e0b7532894, type: 2}
+  - {fileID: 11400000, guid: 6e8b57bff1d32164582933dc71182de9, type: 2}
   m_ElementGrowthFactor: 1.5
   m_ElementMaxSize: 0.1
   m_PanelOffset: 0.85
@@ -1347,7 +1343,7 @@ MonoBehaviour:
   m_ShowSelectedElementSprite: 1
   m_DragAndTouch: 0
   m_TouchTime: 0.2
-  m_InputManagerName: Example Scene Input Manager
+  m_InputManagerName: Weapon Input Manager
 --- !u!222 &163954463
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1390,7 +1386,7 @@ RectTransform:
   m_Children:
   - {fileID: 1200039673}
   m_Father: {fileID: 1154928197}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1740,7 +1736,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1154928197}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2381,7 +2377,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 300706005}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963194232}
+        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
+        m_MethodName: OpenWeaponScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &300706005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8230,6 +8238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentWeapon: 000000000100000002000000
+  _equipScreen: {fileID: 2038634050}
+  _weaponLayer: {fileID: 11400000, guid: 6e8b57bff1d32164582933dc71182de9, type: 2}
+  _weaponButton: []
   SoundGunshot:
   - {fileID: 8300000, guid: 56d5337cd80bcd749b7704535a6394a7, type: 3}
   - {fileID: 8300000, guid: 38c64ad19d1b347409f6859efe661509, type: 3}
@@ -8246,7 +8257,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SoundFightButton: {fileID: 8300000, guid: 49fb3366408e52d4fb6616a5108a235d, type: 3}
   SoundReload:
   - {fileID: 8300000, guid: 7de140f8f887f0547a024621e4c8291e, type: 3}
   - {fileID: 8300000, guid: f6e0d61ec32b337489c9e496ae371fc2, type: 3}
@@ -9648,9 +9658,9 @@ RectTransform:
   - {fileID: 1561258276}
   - {fileID: 384690409}
   - {fileID: 649889549}
-  - {fileID: 2038634050}
   - {fileID: 215023542}
   - {fileID: 227059186}
+  - {fileID: 2038634050}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11461,7 +11471,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1275149411}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963194232}
+        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
+        m_MethodName: OpenWeaponScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1275149411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12381,9 +12403,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -43.435608, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373475574
 MonoBehaviour:
@@ -13402,7 +13424,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1491341688}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963194232}
+        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
+        m_MethodName: OpenWeaponScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1491341688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17254,7 +17288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2038634050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17272,7 +17306,7 @@ RectTransform:
   - {fileID: 11515882}
   - {fileID: 1007000555}
   m_Father: {fileID: 1154928197}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

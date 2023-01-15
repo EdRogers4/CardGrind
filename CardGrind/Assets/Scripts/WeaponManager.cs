@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using LBG.UI.Radial;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class WeaponManager : MonoBehaviour
 
 	[Header("Weapon Screen")]
 	[SerializeField] private RectTransform _equipScreen;
+	[SerializeField] private RadialLayerButtons _weaponLayer;
+	[SerializeField] private RadialMenuButton[] _weaponButton;
 
 	[Header("Bullet Effects")]
 	public AudioClip[] SoundGunshot;
