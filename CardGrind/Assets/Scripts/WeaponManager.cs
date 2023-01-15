@@ -7,8 +7,12 @@ using UnityEngine.UI;
 public class WeaponManager : MonoBehaviour
 {
 	public int[] CurrentWeapon;
+
+	[Header("Weapon Screen")]
+	[SerializeField] private RectTransform _equipScreen;
+
+	[Header("Bullet Effects")]
 	public AudioClip[] SoundGunshot;
-	public AudioClip SoundFightButton;
 	public AudioClip[] SoundReload;
 	public AudioClip[] SoundDraw;
 	public List<Image> BulletHoles1;
@@ -52,4 +56,9 @@ public class WeaponManager : MonoBehaviour
 				break;
 		}
 	}
+
+	public void OpenWeaponScreen()
+    {
+		_equipScreen.gameObject.SetActive(true);
+    }
 }

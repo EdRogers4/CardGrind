@@ -33,6 +33,8 @@ public class LevelScreen : MonoBehaviour
 
     [Header("Area Progress")]
     public int CurrentProgress;
+    [SerializeField] private RectTransform _progressBar;
+    [SerializeField] private float _progressModifier;
 
 
     private void Start()
@@ -139,4 +141,11 @@ public class LevelScreen : MonoBehaviour
                 break;
         }
     }
+    
+    public IEnumerator ProgressIncrease()
+    {
+        yield return new WaitForSeconds(1.0f);
+        CurrentProgress += 1;
+        _progressBar.DOSizeDelta(new Vector2(CurrentProgress * _progressModifier, _progressBar.sizeDelta.y), 0.5f);
+    }    
 }

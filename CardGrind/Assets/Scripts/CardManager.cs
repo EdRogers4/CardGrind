@@ -11,6 +11,7 @@ public class CardManager : MonoBehaviour
     [SerializeField] private Player _scriptPlayer;
     [SerializeField] private Enemies _scriptEnemies;
     [SerializeField] private WeaponManager _scriptWeaponManager;
+    [SerializeField] private LevelScreen _scriptLevelScreen;
 
     [Header("Audio")] 
     private AudioSource _audioSource;
@@ -159,6 +160,7 @@ public class CardManager : MonoBehaviour
                 StartCoroutine(_scriptEnemies.EnemyFadeOut());
                 StartCoroutine(_scriptPlayer.StoryBlip());
                 StartCoroutine(ResetEnemyCards());
+                StartCoroutine(_scriptLevelScreen.ProgressIncrease());
             }
         }
     }

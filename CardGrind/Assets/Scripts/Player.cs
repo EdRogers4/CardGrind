@@ -47,6 +47,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speedAnimateText;
     private int _currentStoryBlip;
 
+    [Header("Guns")]
+    [SerializeField] private Button[] _buttonEquip;
+
     void Start()
     {
         _audioSource = gameObject.GetComponent<AudioSource>();
@@ -69,6 +72,11 @@ public class Player : MonoBehaviour
         _audioSource.PlayOneShot(_scriptWeaponManager.SoundReload[0], 1);
         _audioSource.PlayOneShot(_scriptWeaponManager.SoundReload[1], 1);
         _audioSource.PlayOneShot(_scriptWeaponManager.SoundReload[2], 1);
+
+        for (int i = 0; i < _buttonEquip.Length; i++)
+        {
+            _buttonEquip[i].interactable = false;
+        }
     }
 
     public void Aim()
@@ -183,5 +191,11 @@ public class Player : MonoBehaviour
         _animatorStoryPanel.SetBool("isOn", true);
         _buttonFight.GetComponent<Button>().interactable = true;
         _buttonTravel.interactable = true;
+
+        for (int i = 0; i < _buttonEquip.Length; i++)
+        {
+            _buttonEquip[i].interactable = true;
+        }
     }
+
 }

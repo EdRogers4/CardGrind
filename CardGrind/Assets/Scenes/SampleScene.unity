@@ -1468,13 +1468,16 @@ MonoBehaviour:
   _levelScreenElements: {fileID: 1200039672}
   _speedTransitionScreen: 1
   _frameForest:
-  - {fileID: 21300000, guid: ee3226157650bea46be834b618bc12d4, type: 3}
+  - {fileID: 21300000, guid: bc313254ca931234cb852a48f315682d, type: 3}
   _frameCity:
-  - {fileID: 21300000, guid: dc0444f9b965444409a625ec61e1e8e3, type: 3}
+  - {fileID: 21300000, guid: 7a265d157577d4c44983e87810a777ff, type: 3}
   _frameFactory:
   - {fileID: 21300000, guid: 4889d981053ca2145af117d61804bfdb, type: 3}
   _frameLake:
   - {fileID: 21300000, guid: 2b6aebaab03d7a642bb92bf9738aac63, type: 3}
+  CurrentProgress: 0
+  _progressBar: {fileID: 1636355656}
+  _progressModifier: 10
 --- !u!82 &215023546
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5132,7 +5135,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 234, y: 190}
-  m_SizeDelta: {x: 397, y: 18}
+  m_SizeDelta: {x: 400, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &649889550
 MonoBehaviour:
@@ -5774,6 +5777,10 @@ PrefabInstance:
     - target: {fileID: 114195400658410800, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375219427492406, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
+      propertyPath: hoverSound
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114502243179737848, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_textAlignment
@@ -7466,6 +7473,10 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114375219427492406, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
+      propertyPath: hoverSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114502243179737848, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_textAlignment
       value: 65535
@@ -7950,6 +7961,10 @@ MonoBehaviour:
   - A lake emerges from the black cloud as you move forward.  There is something
     in the corner of your eye.
   _speedAnimateText: 0
+  _buttonEquip:
+  - {fileID: 1275149410}
+  - {fileID: 1491341687}
+  - {fileID: 300706004}
 --- !u!82 &963194230
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9659,6 +9674,7 @@ MonoBehaviour:
   _scriptPlayer: {fileID: 963194229}
   _scriptEnemies: {fileID: 963194231}
   _scriptWeaponManager: {fileID: 963194232}
+  _scriptLevelScreen: {fileID: 215023545}
   CurrentCharacter: 0
   _playerCardButton:
   - {fileID: 933627184}
@@ -10182,6 +10198,10 @@ PrefabInstance:
     - target: {fileID: 114195400658410800, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375219427492406, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
+      propertyPath: hoverSound
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114502243179737848, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_textAlignment
@@ -11044,6 +11064,10 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114375219427492406, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
+      propertyPath: hoverSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114502243179737848, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_textAlignment
       value: 65535
@@ -11686,7 +11710,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 688f12cb9802cb04f85328047c99af14, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3140cf62a9d0ca641b61dcbfa447eff7, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11933,7 +11957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a606940cfcfd55d48bb4adbcb4f9487f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a79d9a7c1b4e61a4082334bd61d7ea20, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -14915,7 +14939,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 397, y: 14}
+  m_SizeDelta: {x: 0, y: 14}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1636355657
 MonoBehaviour:
@@ -16952,7 +16976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a826fb7c9a53b5749bcc9624af7a5bc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71cf119c95bb30c419f03289fed80362, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

@@ -36,7 +36,7 @@ namespace Michsky.UI.Dark
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (enableHoverSound == true && audioSource != null)
+            if (enableHoverSound == true && audioSource != null && hoverSound != null)
                 audioSource.PlayOneShot(hoverSound);
         }
 
