@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ElementSprite: {fileID: 21300000, guid: 27a64fe320e95d14da9bb266ab983997, type: 3}
   m_SpriteColour: {r: 1, g: 1, b: 1, a: 1}
-  m_ElementName: Gun06
+  m_ElementName: Hellscream
   m_ElementEvent: Gun06

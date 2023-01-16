@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ElementSprite: {fileID: 21300000, guid: a4c4e881389c0a24b923de293648309e, type: 3}
   m_SpriteColour: {r: 1, g: 1, b: 1, a: 1}
-  m_ElementName: Gun09
+  m_ElementName: Brimstone
   m_ElementEvent: Gun09

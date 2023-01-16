@@ -5,15 +5,86 @@ namespace LBG.UI.Radial
 {
 	public class ExampleSceneInputManager : RadialMenuInputManager
 	{
-		/// <summary>
-		/// Process a button based on that layers event name and the buttons event name
-		/// </summary>
-		/// <param name="layerEvent">Event name of the layer</param>
-		/// <param name="buttonEvent">Event name of the button</param>
+        /// <summary>
+        /// Process a button based on that layers event name and the buttons event name
+        /// </summary>
+        /// <param name="layerEvent">Event name of the layer</param>
+        /// <param name="buttonEvent">Event name of the button</param>
+        /// 
+
+        [SerializeField] private WeaponManager _scriptWeaponManager;
+
 		public override void ProcessButton(string layerEvent, string buttonEvent)
 		{
 			switch(layerEvent)
             {
+                case "Weapon":
+                    
+                    switch (buttonEvent)
+                    {
+                        case "Gun01":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 0;
+                            _scriptWeaponManager.EquipWeapon(0);
+                            break;
+                        case "Gun02":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 1;
+                            _scriptWeaponManager.EquipWeapon(1);
+                            break;
+                        case "Gun03":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 2;
+                            _scriptWeaponManager.EquipWeapon(2);
+                            break;
+                        case "Gun04":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 3;
+                            _scriptWeaponManager.EquipWeapon(3);
+                            break;
+                        case "Gun05":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 4;
+                            _scriptWeaponManager.EquipWeapon(4);
+                            break;
+                        case "Gun06":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 5;
+                            _scriptWeaponManager.EquipWeapon(5);
+                            break;
+                        case "Gun07":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 6;
+                            _scriptWeaponManager.EquipWeapon(6);
+                            break;
+                        case "Gun08":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 7;
+                            _scriptWeaponManager.EquipWeapon(7);
+                            break;
+                        case "Gun09":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 8;
+                            _scriptWeaponManager.EquipWeapon(8);
+                            break;
+                        case "Gun10":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 9;
+                            _scriptWeaponManager.EquipWeapon(9);
+                            break;
+                        case "Gun11":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 10;
+                            _scriptWeaponManager.EquipWeapon(10);
+                            break;
+                        case "Gun12":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 11;
+                            _scriptWeaponManager.EquipWeapon(11);
+                            break;
+                        case "Gun13":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 12;
+                            _scriptWeaponManager.EquipWeapon(12);
+                            break;
+                        case "Gun14":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 13;
+                            _scriptWeaponManager.EquipWeapon(13);
+                            break;
+                        case "Gun15":
+                            _scriptWeaponManager.CurrentWeapon[_scriptWeaponManager.CurrentCharacterEquip] = 14;
+                            _scriptWeaponManager.EquipWeapon(14);
+                            break;
+                    }
+                    break;
+                
                 case "Main":
 
                     switch (buttonEvent)

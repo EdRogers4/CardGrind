@@ -39,7 +39,7 @@ public class LevelScreen : MonoBehaviour
 
     private void Start()
     {
-        _fadeOutScreen.DOColor(Color.clear, 3.5f);
+        _fadeOutScreen.DOColor(Color.clear, 0.5f);
         _audioSource = gameObject.GetComponent<AudioSource>();
         MusicFadeIn();
     }

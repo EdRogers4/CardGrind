@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ElementSprite: {fileID: 21300000, guid: ae0c9c6ef61d57a4cbe68314267181bd, type: 3}
   m_SpriteColour: {r: 1, g: 1, b: 1, a: 1}
-  m_ElementName: Gun15
+  m_ElementName: Apocalypse Launcher
   m_ElementEvent: Gun15

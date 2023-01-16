@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ElementSprite: {fileID: 21300000, guid: 7e8e02dc820f5c143a21ec2ef0e99f33, type: 3}
   m_SpriteColour: {r: 1, g: 1, b: 1, a: 1}
-  m_ElementName: Gun14
+  m_ElementName: Exorcist
   m_ElementEvent: Gun14

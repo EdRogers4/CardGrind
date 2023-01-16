@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ElementSprite: {fileID: 21300000, guid: 3ab6e0fc17432d94ea8bf111029cd4d1, type: 3}
   m_SpriteColour: {r: 1, g: 1, b: 1, a: 1}
-  m_ElementName: Gun10
+  m_ElementName: Typhoon MK III
   m_ElementEvent: Gun10

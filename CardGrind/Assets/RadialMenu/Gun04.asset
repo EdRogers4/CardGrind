@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ElementSprite: {fileID: 21300000, guid: 363ea11d2db3f4643a43fbb1827b1d69, type: 3}
   m_SpriteColour: {r: 1, g: 1, b: 1, a: 1}
-  m_ElementName: Gun04
+  m_ElementName: Crossfire
   m_ElementEvent: Gun04

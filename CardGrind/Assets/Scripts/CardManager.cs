@@ -35,6 +35,12 @@ public class CardManager : MonoBehaviour
         _audioSource = _scriptPlayer.gameObject.GetComponent<AudioSource>();
     }
 
+    public void SetPlayerDamage(int character, int damage)
+    {
+        _damagePlayer[character] = damage;
+        _textDamagePlayer[character].text = "" + _damagePlayer[character];
+    }
+
     public void GeneratePlayerDamage()
     {
         _highlightedBorder.enabled = true;
@@ -43,7 +49,7 @@ public class CardManager : MonoBehaviour
         {
             if (_damagePlayer[i] <= 0 && _scriptPlayer.PlayerHealth[i] > 0)
             {
-                _damagePlayer[i] = Random.Range(1, 4);
+                _damagePlayer[i] = Random.Range(_scriptWeaponManager.DamageMin[_scriptWeaponManager.CurrentWeapon[i]], _scriptWeaponManager.DamageMax[_scriptWeaponManager.CurrentWeapon[i]]);
                 _textDamagePlayer[i].text = "" + _damagePlayer[i];
             }
         }

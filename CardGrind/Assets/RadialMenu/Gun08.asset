@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ElementSprite: {fileID: 21300000, guid: 67838dd4b694c11489c65db2610411b4, type: 3}
   m_SpriteColour: {r: 1, g: 1, b: 1, a: 1}
-  m_ElementName: Gun08
+  m_ElementName: Lockjaw
   m_ElementEvent: Gun08
