@@ -5988,7 +5988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224156065551391314, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 136.75
       objectReference: {fileID: 0}
     - target: {fileID: 224156065551391314, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7683,7 +7683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224156065551391314, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 136.75
       objectReference: {fileID: 0}
     - target: {fileID: 224156065551391314, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8385,9 +8385,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ed7fda7db81fc4a98156abc612186f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentWeapon: 000000000100000002000000
+  CurrentWeapon: 000000000000000000000000
   CurrentCharacterEquip: 0
   isWeaponUnlocked: 010101010101010101010101010101
+  FireRate:
+  - 0.2
+  - 0.3
+  - 0.2
+  - 0.05
+  - 0.08
+  - 0.09
+  - 0.2
+  - 0.25
+  - 0.3
+  - 0.1
+  - 0.125
+  - 0.1
+  - 0.2
+  - 0.01
+  - 0.2
   _scriptCardManager: {fileID: 1154928198}
   _equipScreen: {fileID: 2038634050}
   _weaponLayer: {fileID: 11400000, guid: 6e8b57bff1d32164582933dc71182de9, type: 2}
@@ -8462,52 +8478,52 @@ MonoBehaviour:
   DamageMax: 0300000004000000050000000600000007000000080000000600000007000000080000000700000008000000090000000a0000000e00000014000000
   SoundGunshot:
   - {fileID: 8300000, guid: 56d5337cd80bcd749b7704535a6394a7, type: 3}
-  - {fileID: 8300000, guid: 38c64ad19d1b347409f6859efe661509, type: 3}
+  - {fileID: 8300000, guid: 8aa86461ded8ec84eb76e709702b0fa5, type: 3}
   - {fileID: 8300000, guid: bb1c84205d46cfa448f108ff859ecf10, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: c73414625c050ca44aa63ee50fce7047, type: 3}
+  - {fileID: 8300000, guid: 23dbead665175c94c96edf6bee26ba9c, type: 3}
+  - {fileID: 8300000, guid: 1303254764f6a6f47b493960a28a8d75, type: 3}
+  - {fileID: 8300000, guid: 9f0a40e810830d748ad06a4c2895c203, type: 3}
+  - {fileID: 8300000, guid: ae2c2b45d1fc19d47a1c3bf570568d42, type: 3}
+  - {fileID: 8300000, guid: deec33dbd93c66144bd941b8ce6c1f79, type: 3}
+  - {fileID: 8300000, guid: 5a29902557d86bf4b8b7f0b3209d3e77, type: 3}
+  - {fileID: 8300000, guid: d2377e71d942a4f4587f106bcec9d4e5, type: 3}
+  - {fileID: 8300000, guid: 10799b9e9a68e934ea66e31d1799c2b1, type: 3}
+  - {fileID: 8300000, guid: 358c25aadfba0ba4d84180bf68b251fe, type: 3}
+  - {fileID: 8300000, guid: 43fc334a8fb77ba469b6d976bc000ecb, type: 3}
+  - {fileID: 8300000, guid: 358c25aadfba0ba4d84180bf68b251fe, type: 3}
   SoundReload:
   - {fileID: 8300000, guid: 7de140f8f887f0547a024621e4c8291e, type: 3}
   - {fileID: 8300000, guid: f6e0d61ec32b337489c9e496ae371fc2, type: 3}
   - {fileID: 8300000, guid: 1ce6e6d2dfb3623478a6e278f1e5cca2, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 73071dcc875e07e4884b413aec5d3177, type: 3}
+  - {fileID: 8300000, guid: 66ec888b441fd204c882935072f3791d, type: 3}
+  - {fileID: 8300000, guid: 19b4d559553e278489da163593406932, type: 3}
+  - {fileID: 8300000, guid: 5de636b2e60d1d748936f0637689b82f, type: 3}
+  - {fileID: 8300000, guid: f9d454a28c998434fb41af994f3b8d9a, type: 3}
+  - {fileID: 8300000, guid: bc60413ef8c6d8a4283be722b30b3e93, type: 3}
+  - {fileID: 8300000, guid: 08e171fed7072a34bb62c78a0f88ebf9, type: 3}
+  - {fileID: 8300000, guid: 8128a85e324e0e843b293e7f9b47b11f, type: 3}
+  - {fileID: 8300000, guid: dd7ddf3a2f02de24fbc067664cd8bf15, type: 3}
+  - {fileID: 8300000, guid: 7674d1d6cbae3364e99d9a18fdd37ae1, type: 3}
+  - {fileID: 8300000, guid: 49fb3366408e52d4fb6616a5108a235d, type: 3}
+  - {fileID: 8300000, guid: 5580fc162a1cd944eb2f8d8edd8b0677, type: 3}
   SoundDraw:
   - {fileID: 8300000, guid: 2be08abb2a95e0049b5f7876b991de28, type: 3}
   - {fileID: 8300000, guid: fcdb4eac0dc9861409612d580060dc55, type: 3}
   - {fileID: 8300000, guid: 506c6d966638ea9408b04deaf47ac559, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5eb8df77297cbac4f97e0909b0d7027a, type: 3}
+  - {fileID: 8300000, guid: 57f00532d492c09449235f93cda9e615, type: 3}
+  - {fileID: 8300000, guid: 5eb8df77297cbac4f97e0909b0d7027a, type: 3}
+  - {fileID: 8300000, guid: 5de636b2e60d1d748936f0637689b82f, type: 3}
+  - {fileID: 8300000, guid: f9d454a28c998434fb41af994f3b8d9a, type: 3}
+  - {fileID: 8300000, guid: bc60413ef8c6d8a4283be722b30b3e93, type: 3}
+  - {fileID: 8300000, guid: ef740bb9f689cfa47adce96708be4bc0, type: 3}
+  - {fileID: 8300000, guid: 75443129ad7632b45ad1be2959410487, type: 3}
+  - {fileID: 8300000, guid: 18528bf7cac99264bbe6574b9e1444ec, type: 3}
+  - {fileID: 8300000, guid: c3b68407521d6c74f8f5a03d3ad78908, type: 3}
+  - {fileID: 8300000, guid: 48000bee3607fa642b830bd9cc947301, type: 3}
+  - {fileID: 8300000, guid: b7dbceff983dc7140bd6b2acc0a357aa, type: 3}
   BulletHoles1:
   - {fileID: 148699080}
   - {fileID: 486185479}
@@ -10617,7 +10633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224156065551391314, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 136.75
       objectReference: {fileID: 0}
     - target: {fileID: 224156065551391314, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11482,7 +11498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224156065551391314, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 136.75
       objectReference: {fileID: 0}
     - target: {fileID: 224156065551391314, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.y

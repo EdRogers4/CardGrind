@@ -102,6 +102,11 @@ public class CardManager : MonoBehaviour
         {
             for (int i = 0; i < damage; i++)
             {
+                if (_damageEnemy[index] <= 0)
+                {
+                    break;
+                }
+
                 _damagePlayer[thisCharacter] -= 1;
                 _textDamagePlayer[thisCharacter].text = "" + _damagePlayer[thisCharacter];
                 _audioSource.PlayOneShot(_scriptWeaponManager.SoundGunshot[_scriptWeaponManager.CurrentWeapon[thisCharacter]], 0.7F);
@@ -132,7 +137,7 @@ public class CardManager : MonoBehaviour
                     }
                 }
 
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(_scriptWeaponManager.FireRate[_scriptWeaponManager.CurrentWeapon[CurrentCharacter]]);
             }
             
             //Resolve card elimination

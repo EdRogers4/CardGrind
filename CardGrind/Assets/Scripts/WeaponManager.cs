@@ -11,6 +11,7 @@ public class WeaponManager : MonoBehaviour
 	public int[] CurrentWeapon;
 	public int CurrentCharacterEquip;
 	public bool[] isWeaponUnlocked;
+	public float[] FireRate;
 
 	[Header("Weapon Screen")]
 	[SerializeField] private CardManager _scriptCardManager;
