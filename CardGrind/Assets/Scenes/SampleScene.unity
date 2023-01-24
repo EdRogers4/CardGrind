@@ -3152,8 +3152,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -281, y: 119}
-  m_SizeDelta: {x: 368, y: 118}
+  m_AnchoredPosition: {x: -251.7, y: 119}
+  m_SizeDelta: {x: 325.2, y: 118}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384690410
 MonoBehaviour:
@@ -5290,7 +5290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 234, y: 190}
+  m_AnchoredPosition: {x: 194.09999, y: 190}
   m_SizeDelta: {x: 400, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &649889550
@@ -5443,7 +5443,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 350, y: 103}
+  m_SizeDelta: {x: 306.3, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &658431657
 MonoBehaviour:
@@ -6024,7 +6024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 225
+      value: 185
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_SizeDelta.y
@@ -6072,7 +6072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -350
+      value: -290
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7719,7 +7719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 225
+      value: 185
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_SizeDelta.y
@@ -7767,7 +7767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 130
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8065,6 +8065,7 @@ MonoBehaviour:
   _scriptEnemies: {fileID: 963194231}
   _scriptCardManager: {fileID: 1154928198}
   _scriptWeaponManager: {fileID: 963194232}
+  _scriptLevelScreen: {fileID: 215023545}
   _buttonFight: {fileID: 2115796772}
   _buttonTravel: {fileID: 1561258277}
   _blood1:
@@ -8114,8 +8115,12 @@ MonoBehaviour:
   _animatorStoryPanel: {fileID: 384690412}
   _textStory: {fileID: 658431657}
   _storyBlipsForest:
-  - A lake emerges from the black cloud as you move forward.  There is something
+  - Something emerges from darkness as you move forward.  There is a sinister shadow
     in the corner of your eye.
+  - There is something all too familiar about this feeling.  It haunts you.
+  - These beings know no compromise.  They are here to possess our minds.
+  - 'You feel something trying to crawl into the back of your neck. '
+  - The shadows... They are the bringers of despair.  Now they must die.
   _speedAnimateText: 0
   _buttonEquip:
   - {fileID: 1275149410}
@@ -8232,13 +8237,13 @@ MonoBehaviour:
   _scriptPlayer: {fileID: 963194229}
   CurrentEnemy: 0
   CurrentEnemyCards: 000000000000000000000000
-  EnemyCard1: 020000000300000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000
-  EnemyCard2: 030000000100000003000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000
-  EnemyCard3: 020000000300000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000
+  EnemyCard1: 020000000300000008000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000
+  EnemyCard2: 030000000100000004000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000030000000300000003000000
+  EnemyCard3: 020000000300000006000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000
   _enemyName:
   - Sleep Paralysis Demon
-  - Forest Stalker
-  - 
+  - Sand Stalker
+  - Sand Doctor
   - 
   - 
   - 
@@ -8264,7 +8269,7 @@ MonoBehaviour:
   _enemyPortrait:
   - {fileID: 21300000, guid: 4568cc68284a21e47af7bc8c96593c0d, type: 3}
   - {fileID: 21300000, guid: 71b749eac7ee1304a963d3d63261bd93, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 6edf438497623f149924e0aeb9854efb, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -8601,7 +8606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -39.90001, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &975650610
@@ -10669,7 +10674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 225
+      value: 185
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_SizeDelta.y
@@ -10717,7 +10722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -110
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11534,7 +11539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 225
+      value: 185
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_SizeDelta.y
@@ -11582,7 +11587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 370
+      value: 310
       objectReference: {fileID: 0}
     - target: {fileID: 224195536591378032, guid: edfe5669ee6a96440a4311ff508b7b4b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -12239,7 +12244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -106, y: 98.8}
+  m_AnchoredPosition: {x: -145.90001, y: 98.8}
   m_SizeDelta: {x: 190, y: 218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295751116
@@ -12911,7 +12916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -39.9, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1401341096
@@ -13303,8 +13308,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 30}
-  m_SizeDelta: {x: 235, y: 310}
+  m_AnchoredPosition: {x: -290, y: 30}
+  m_SizeDelta: {x: 195, y: 310}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1443892718
 MonoBehaviour:
@@ -13552,7 +13557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -726.1, y: 0}
+  m_AnchoredPosition: {x: -766, y: 0}
   m_SizeDelta: {x: 115, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1474046420
@@ -17256,8 +17261,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 10}
-  m_SizeDelta: {x: 336, y: 414}
+  m_AnchoredPosition: {x: 76.9, y: 10}
+  m_SizeDelta: {x: 258.5, y: 335.3}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1972805912
 MonoBehaviour:

@@ -47,7 +47,6 @@ public class Enemies : MonoBehaviour
 
 	public void EnemyFadeIn()
 	{
-		CurrentEnemy = Random.Range(0, 2);
 		_textEnemyName.text = _enemyName[CurrentEnemy];
 		_textEnemyName.DOColor(Color.white, _timeFadeInEnemy);
 		_imagePortrait.sprite = _enemyPortrait[CurrentEnemy];
@@ -76,6 +75,7 @@ public class Enemies : MonoBehaviour
 		yield return new WaitForSeconds(1.1f);
 		_textEnemyName.DOColor(Color.clear, _timeFadeInEnemy);
 		_animatorEnemyCards.SetBool("isShow", false);
+		CurrentEnemy += 1;
 		
 		for (int i = 0; i < _imagesEnemyPanel.Length; i++)
 		{

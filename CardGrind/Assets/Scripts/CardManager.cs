@@ -102,7 +102,7 @@ public class CardManager : MonoBehaviour
         {
             for (int i = 0; i < damage; i++)
             {
-                if (_damageEnemy[index] <= 0)
+                if (_damageEnemy[thisEnemy] <= 0)
                 {
                     break;
                 }
@@ -141,7 +141,7 @@ public class CardManager : MonoBehaviour
             }
             
             //Resolve card elimination
-            if (_scriptEnemies.CurrentEnemyCards[thisEnemy] <= 0)
+            if (_damageEnemy[thisEnemy] <= 0)
             {
                 StartCoroutine(EliminateCard(thisEnemy, thisCharacter));
             }

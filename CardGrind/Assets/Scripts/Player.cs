@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Enemies _scriptEnemies;
     [SerializeField] private CardManager _scriptCardManager;
     [SerializeField] private WeaponManager _scriptWeaponManager;
+    [SerializeField] private LevelScreen _scriptLevelScreen;
     
     [Header("UI")] 
     [SerializeField] private GameObject _buttonFight;
@@ -185,12 +186,13 @@ public class Player : MonoBehaviour
 
     public IEnumerator StoryBlip()
     {
-        _currentStoryBlip += 1;
         _textStory.text = "";
         yield return new WaitForSeconds(3.0f);
+        _currentStoryBlip = _scriptLevelScreen.CurrentProgress;
         _animatorStoryPanel.SetBool("isOn", true);
         _buttonFight.GetComponent<Button>().interactable = true;
         _buttonTravel.interactable = true;
+        StartCoroutine(AnimateStoryText());
 
         for (int i = 0; i < _buttonEquip.Length; i++)
         {
